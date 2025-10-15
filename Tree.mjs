@@ -1,9 +1,8 @@
 import Node from "./Node.mjs"
 export default class Tree{
-    constructor(treeArr){
+    constructor(){
         // root variable return the rootNode from the buildTree(arr)
         this.root = null
-        this.treeArr = []
     }
 
     
@@ -42,25 +41,9 @@ export default class Tree{
      * `buildTree(arr)` call the createBST(arr,0,arr.length - 1)
      */
     buildTree(arr){
-        let sortArr = [...new Set(arr)].sort((a,b) => a - b)
-        this.root = this.buildTreeHelper(sortArr,0,arr.length - 1)
+        arr = [...new Set(arr)].sort((a,b) => a - b)
+        this.root = this.buildTreeHelper(arr,0,arr.length - 1)
         return this.root
     }
 
-    // prettyPrint(node, prefix = '', isLeft = true){
-    //     node = this.root
-    //     if (node === null) {
-    //         return;
-    //     }
-
-    //     if (node.right !== null) {
-    //         prettyPrint(node.right, `${prefix}${isLeft ? '│   ' : '    '}`, false);
-    //     }
-
-    //     console.log(`${prefix}${isLeft ? '└── ' : '┌── '}${node.data}`);
-        
-    //     if (node.left !== null) {
-    //         prettyPrint(node.left, `${prefix}${isLeft ? '    ' : '│   '}`, true);
-    //     }
-    // }
 }
